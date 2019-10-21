@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Game\Ball.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Game\Breakout.py">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,27 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Game\Bricks\__init__.py" />
+    <Compile Include="Game\HighScore.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Game\Level.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Game\Pad.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Game\Scenes\MenuScene.py" />
+    <Compile Include="Game\Scenes\HighscoreScene.py" />
+    <Compile Include="Game\Scenes\GameOverScene.py" />
+    <Compile Include="Game\Scenes\PlayingGameScene.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Game\Scenes\Scene.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Game\Scenes\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Game\Shared\GameConstants.py">
       <SubType>Code</SubType>
     </Compile>
