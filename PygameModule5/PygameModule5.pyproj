@@ -72,9 +72,28 @@
   <ItemGroup>
     <Folder Include="Game\" />
     <Folder Include="Game\Assets\" />
+    <Folder Include="Game\Assets\Levels\" />
     <Folder Include="Game\Bricks\" />
     <Folder Include="Game\Shared\" />
     <Folder Include="Game\Scenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game\Assets\ball.png" />
+    <Content Include="Game\Assets\BrickHit.wav" />
+    <Content Include="Game\Assets\ExtraLife.wav" />
+    <Content Include="Game\Assets\GameOver.wav" />
+    <Content Include="Game\Assets\highscore.png" />
+    <Content Include="Game\Assets\Levels\level0.dat" />
+    <Content Include="Game\Assets\Levels\level1.dat" />
+    <Content Include="Game\Assets\life.png" />
+    <Content Include="Game\Assets\menu.png" />
+    <Content Include="Game\Assets\pad.png" />
+    <Content Include="Game\Assets\PadBounce.wav" />
+    <Content Include="Game\Assets\PS circle.png" />
+    <Content Include="Game\Assets\speed.png" />
+    <Content Include="Game\Assets\SpeedUp.wav" />
+    <Content Include="Game\Assets\standard.png" />
+    <Content Include="Game\Assets\WallBounce.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

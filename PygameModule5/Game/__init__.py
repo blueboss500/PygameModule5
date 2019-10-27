@@ -1,4 +1,4 @@
-
+#Define the Game module and available classes
 from Game.Ball import Ball
 from Game.HighScore import HighScore
 from Game.Level import Level
