@@ -20,18 +20,33 @@ class PlayingGameScene(Scene):
 
         game = self.getGame()
 
-        for ball in game.getBalls():
+        balls = game.getBalls()
+        pad = game.getPad()
+
+        for ball in balls:
             
+            #check if balls intersect each other
+            for ball2 in balls:
+                if ball != ball2 and ball.intersects(ball2):
+                    ball.changeDirection(ball2)
+
             for brick in game.getLevel().getBricks():
-                if ball.intersects(brick):
+                if not brick.isDestroyed() and ball.intersects(brick):
                     brick.hit()
                     ball.changeDirection(brick)
                     break
 
+            if ball.intersects(pad):
+                ball.changeDirection(pad)
+
             ball.updatePosition()
+
             game.screen.blit(ball.getSprite(), ball.getPosition())
             
         for brick in game.getLevel().getBricks():
             if not brick.isDestroyed():
                 game.screen.blit(brick.getSprite(), brick.getPosition())
 
+        
+        pad.setPosition((pygame.mouse.get_pos()[0], pad.getPosition()[1]))
+        game.screen.blit(pad.getSprite(), pad.getPosition())
