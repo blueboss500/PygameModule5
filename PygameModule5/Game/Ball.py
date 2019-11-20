@@ -65,14 +65,16 @@ class Ball(GameObject):
             self.__direction[1] *= -1
 
     def updatePosition(self):
+        #set ball to start position if not in motion
+        if not self.isInMotion():
+            padPosition = self.__game.getPad().getPosition()
+            self.setPosition((
+                padPosition[0] + (GameConstants.PAD_SIZE[0] / 2),
+                GameConstants.SCREEN_SIZE[1] - GameConstants.PAD_SIZE[1] - GameConstants.BALL_SIZE[1]
+            ))
+            return
 
-        #if not self.isInMotion():
-        #    padPosition = self.__game.getPad().getPosition()
-        #    self.setPosition((
-        #        padPosition[0] + (GameConstants.PAD_SIZE[0] / 2),
-        #        GameConstants.SCREEN_SIZE[1] - GameConstants.PAD_SIZE[1] - GameConstants.BALL_SIZE[1]
-        #    ))
-        #    return
+       
 
         position = self.getPosition()
         size = self.getSize()
@@ -99,6 +101,11 @@ class Ball(GameObject):
         self.setPosition(newPosition)
 
     def isBallDead(self):
-        pass
+        position = self.getPosition()
+        size = self.getSize()
 
+        if position[1] + size[1] >= GameConstants.SCREEN_SIZE[1]:
+            return 1
 
+        return 0
+        
