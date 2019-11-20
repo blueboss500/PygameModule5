@@ -10,8 +10,9 @@ class GameConstants:
     SPRITE_BALL = os.path.join("Game", "Assets", "ball.png")
     SPRITE_BRICK = os.path.join("Game", "Assets", "standard.png")
     SPRITE_SPEEDBRICK = os.path.join("Game", "Assets", "speed.png")
-    SPRITE_LIFEBRICK = os.path.join("Game", "Assets", "life.png")
-
+    SPRITE_LIFEBRICK = os.path.join("Game", "Assets", "life.png")   
+    SPRITE_HIGHSCORE = os.path.join("Game", "Assets", "highscore.png") 
+    
     PLAYING_SCENE = 0
     GAMEOVER_SCENE = 1
     HIGHSCORE_SCENE = 2
