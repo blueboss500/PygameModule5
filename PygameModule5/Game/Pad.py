@@ -3,7 +3,7 @@ from Game.Shared import *
 class Pad(GameObject):
 
     def __init__(self, position, sprite):
-        super(Pad, self).__init__(position, GameConstants.PAD_SIZE, sprite)
+        super(Pad, self).__init__(position, GameConstants.SHIP_SIZE, sprite)
 
     def setPosition(self, position):
         newPosition = [position[0], position[1]]

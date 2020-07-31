@@ -13,13 +13,13 @@ class Breakout:
         self.__level = Level(self)
         self.__level.load(0)
 
-        self.__pad = Pad((GameConstants.SCREEN_SIZE[0]/2, 
-                          GameConstants.SCREEN_SIZE[1] - GameConstants.PAD_SIZE[1]),
-                          pygame.image.load(GameConstants.SPRITE_PAD)
+        self.__ship = Pad((GameConstants.SCREEN_SIZE[0]/2, 
+                          GameConstants.SCREEN_SIZE[1] - GameConstants.SHIP_SIZE[1]),
+                          pygame.image.load(GameConstants.SPRITE_SHIP)
                         )
 
         self.__balls = [
-            Ball((400, 400), pygame.image.load(GameConstants.SPRITE_BALL), self),
+            Ball((200, 200), pygame.image.load(GameConstants.SPRITE_BALL), self),
         ]
 
         pygame.init()
@@ -75,8 +75,8 @@ class Breakout:
     def getBalls(self):
         return self.__balls
 
-    def getPad(self):
-        return self.__pad
+    def getShip(self):
+        return self.__ship
 
     def playSound(self, soundClip):
         sound = self.__sounds[soundClip]

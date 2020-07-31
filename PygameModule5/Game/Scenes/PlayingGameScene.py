@@ -16,7 +16,7 @@ class PlayingGameScene(Scene):
             game.changeScene(GameConstants.GAMEOVER_SCENE)
 
         balls = game.getBalls()
-        pad = game.getPad()
+        ship = game.getShip()
 
         #render balls
         for ball in balls:
@@ -29,11 +29,14 @@ class PlayingGameScene(Scene):
                 if not brick.isDestroyed() and ball.intersects(brick):
                     brick.hit()
                     game.increaseScore(brick.getHitPoints())
-                    ball.changeDirection(brick)
+                    #ball.changeDirection(brick)
+                    #When ball hits brick, ball should reinitialize..reset to fire again
+                    ball.setPosition(((pygame.mouse.get_pos()[0] - 10), ship.getPosition()[1]))
+                    ball.setMotion(0)
                     break
 
-            if ball.intersects(pad):
-                ball.changeDirection(pad)
+            if ball.intersects(ship):
+                ball.changeDirection(ship)
 
             ball.updatePosition()
 
@@ -48,9 +51,9 @@ class PlayingGameScene(Scene):
             if not brick.isDestroyed():
                 game.screen.blit(brick.getSprite(), brick.getPosition())
 
-        #render pad
-        pad.setPosition((pygame.mouse.get_pos()[0], pad.getPosition()[1]))
-        game.screen.blit(pad.getSprite(), pad.getPosition())
+        #render ship
+        ship.setPosition((pygame.mouse.get_pos()[0], ship.getPosition()[1]))
+        game.screen.blit(ship.getSprite(), ship.getPosition())
 
 
         #render hi score

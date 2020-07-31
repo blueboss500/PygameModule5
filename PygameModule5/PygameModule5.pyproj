@@ -81,6 +81,7 @@
     <Content Include="Game\Assets\ball.png" />
     <Content Include="Game\Assets\BrickHit.wav" />
     <Content Include="Game\Assets\ExtraLife.wav" />
+    <Content Include="Game\Assets\GalagaShip32.png" />
     <Content Include="Game\Assets\GameOver.wav" />
     <Content Include="Game\Assets\highscore.png" />
     <Content Include="Game\Assets\Levels\level0.dat" />

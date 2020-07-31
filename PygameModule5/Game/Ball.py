@@ -7,8 +7,8 @@ class Ball(GameObject):
     def __init__(self, position, sprite, game):
         self.__game = game
         self.__speed = 3
-        self.__increment = [2, 2]
-        self.__direction = [1, 1]
+        self.__increment = [0, 2]
+        self.__direction = [0, 1]
         self.__inMotion = 0
 
         super(Ball, self).__init__(position, GameConstants.BALL_SIZE, sprite)
@@ -67,10 +67,10 @@ class Ball(GameObject):
     def updatePosition(self):
         #set ball to start position if not in motion
         if not self.isInMotion():
-            padPosition = self.__game.getPad().getPosition()
+            padPosition = self.__game.getShip().getPosition()
             self.setPosition((
-                padPosition[0] + (GameConstants.PAD_SIZE[0] / 2),
-                GameConstants.SCREEN_SIZE[1] - GameConstants.PAD_SIZE[1] - GameConstants.BALL_SIZE[1]
+                (padPosition[0] - 10) + (GameConstants.SHIP_SIZE[0] / 2),
+                GameConstants.SCREEN_SIZE[1] - GameConstants.SHIP_SIZE[1] - GameConstants.BALL_SIZE[1]
             ))
             return
 
