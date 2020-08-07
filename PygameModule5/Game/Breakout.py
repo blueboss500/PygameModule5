@@ -18,8 +18,8 @@ class Breakout:
                           pygame.image.load(GameConstants.SPRITE_SHIP)
                         )
 
-        self.__balls = [
-            Ball((200, 200), pygame.image.load(GameConstants.SPRITE_BALL), self),
+        self.__bullets = [
+            Bullet((0, 0), pygame.image.load(GameConstants.SPRITE_BULLET), self),
         ]
 
         pygame.init()
@@ -72,8 +72,8 @@ class Breakout:
     def getLives(self):
         return self.__lives
 
-    def getBalls(self):
-        return self.__balls
+    def getBullets(self):
+        return self.__bullets
 
     def getShip(self):
         return self.__ship

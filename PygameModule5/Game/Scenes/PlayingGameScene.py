@@ -15,36 +15,34 @@ class PlayingGameScene(Scene):
         if game.getLives() <= 0:
             game.changeScene(GameConstants.GAMEOVER_SCENE)
 
-        balls = game.getBalls()
+        bullets = game.getBullets()
         ship = game.getShip()
 
         #render balls
-        for ball in balls:
-            #check if balls intersect each other
-            for ball2 in balls:
-                if ball != ball2 and ball.intersects(ball2):
-                    ball.changeDirection(ball2)
+        for bullet in bullets:
+           
 
             for brick in game.getLevel().getBricks():
-                if not brick.isDestroyed() and ball.intersects(brick):
+                if not brick.isDestroyed() and bullet.intersects(brick):
                     brick.hit()
                     game.increaseScore(brick.getHitPoints())
-                    #ball.changeDirection(brick)
-                    #When ball hits brick, ball should reinitialize..reset to fire again
-                    ball.setPosition(((pygame.mouse.get_pos()[0] - 10), ship.getPosition()[1]))
-                    ball.setMotion(0)
+                    #When bullet hits brick, bullet should reinitialize..reset to fire again
+                    #bullet.setPosition(((pygame.mouse.get_pos()[0] - 10), ship.getPosition()[1]))
+                    bullet.setMotion(0)
                     break
 
-            if ball.intersects(ship):
-                ball.changeDirection(ship)
+            if bullet.intersects(ship):
+                bullet.changeDirection(ship)
 
-            ball.updatePosition()
+            bullet.updatePosition()
 
-            if ball.isBallDead():
-                ball.setMotion(0)
+            if bullet.isBulletDead():
+                bullet.setMotion(0)
                 game.reduceLives()
 
-            game.screen.blit(ball.getSprite(), ball.getPosition())
+            #only draw bullet if in motion
+            if bullet.isInMotion():
+                game.screen.blit(bullet.getSprite(), bullet.getPosition())
         
         #render bricks
         for brick in game.getLevel().getBricks():
@@ -78,5 +76,5 @@ class PlayingGameScene(Scene):
                 exit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                for ball in self.getGame().getBalls():
+                for ball in self.getGame().getBullets():
                     ball.setMotion(1)

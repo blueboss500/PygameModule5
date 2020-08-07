@@ -8,7 +8,7 @@ class SpeedBrick(Brick):
     def hit(self):
         game = self.getGame()
         
-        for ball in game.getBalls():
+        for ball in game.getBullets():
             ball.setSpeed(ball.getSpeed() + 1)
 
 
