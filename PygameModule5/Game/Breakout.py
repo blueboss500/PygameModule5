@@ -22,6 +22,12 @@ class Breakout:
             Bullet((0, 0), pygame.image.load(GameConstants.SPRITE_BULLET), self),
         ]
 
+        self._backgroundSquares = [
+            Background((0, 0), pygame.image.load(GameConstants.SPRITE_BACKGROUND_1), self),
+            Background((0, 0), pygame.image.load(GameConstants.SPRITE_BACKGROUND_2), self),
+            Background((0, 0), pygame.image.load(GameConstants.SPRITE_BACKGROUND_3), self)
+            ]
+
         pygame.init()
         pygame.mixer.init()
         pygame.display.set_caption("Game Programming with Python & PyGame")
@@ -77,6 +83,9 @@ class Breakout:
 
     def getShip(self):
         return self.__ship
+    
+    def getBackgroundSquares(self):
+        return self._backgroundSquares
 
     def playSound(self, soundClip):
         sound = self.__sounds[soundClip]

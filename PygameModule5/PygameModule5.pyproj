@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Game\Background.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Game\Bullet.py" />
     <Compile Include="Game\Ball.py">
       <SubType>Code</SubType>

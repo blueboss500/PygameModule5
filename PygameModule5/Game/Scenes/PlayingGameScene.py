@@ -8,6 +8,7 @@ class PlayingGameScene(Scene):
         super(PlayingGameScene, self).__init__(game)
 
     def render(self):
+        self._renderCount = 0
         super(PlayingGameScene, self).render()
 
         game = self.getGame()
@@ -17,6 +18,13 @@ class PlayingGameScene(Scene):
 
         bullets = game.getBullets()
         ship = game.getShip()
+        backgroundSquares = game.getBackgroundSquares()
+
+        
+        # render background
+        for backgroundSquare in backgroundSquares:
+            backgroundSquare.updatePosition()
+            game.screen.blit(backgroundSquare.getSprite(), backgroundSquare.getPosition())
 
         #render balls
         for bullet in bullets:
