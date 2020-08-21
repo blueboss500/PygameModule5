@@ -2,6 +2,7 @@ import os
 
 class GameConstants:
     BRICK_SIZE = [100, 30]
+    ENEMY_SIZE = [16, 16]
     SCREEN_SIZE = [800, 600]
     BALL_SIZE = [16, 16]
     BULLET_SIZE = [14, 16]
@@ -13,6 +14,7 @@ class GameConstants:
     SPRITE_BULLET = os.path.join("Game", "Assets", "bullet.png")
     #SPRITE_BALL = os.path.join("Game", "Assets", "GalagaShip32.png")
     SPRITE_BRICK = os.path.join("Game", "Assets", "standard.png")
+    SPRITE_ENEMY = os.path.join("Game", "Assets", "enemy1.png")
     SPRITE_SPEEDBRICK = os.path.join("Game", "Assets", "speed.png")
     SPRITE_LIFEBRICK = os.path.join("Game", "Assets", "life.png")   
     SPRITE_HIGHSCORE = os.path.join("Game", "Assets", "highscore.png") 

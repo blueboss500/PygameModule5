@@ -8,49 +8,50 @@ from Game.Shared import *
 class Level:
 
     def __init__(self, game):
+        #create and set private member vars
         self.__game = game
-        self.__bricks = []
-        self.__amountOfBricksLeft = 0
+        self.__enemies = []
+        self.__amountOfEnemiesLeft = 0
         self.__currentLevel = 0
 
+        #methods
+    def getEnemies(self):
+        return self.__enemies
 
-    def getBricks(self):
-        return self.__bricks
+    def getAmountOfEnemiesLeft(self):
+        return self.__amountOfEnemiesLeft
 
-    def getAmountOfBricksLeft(self):
-        return self.__amountOfBricksLeft
-
-    def brickHit(self):
-        self.__amountOfBricksLeft -= 1
+    def enemyHit(self):
+        self.__amountOfEnemiesLeft -= 1
 
     def loadNextLevel(self):
         pass
 
     def load(self, level):
         self.__currentLevel = level
-        self.__bricks = []
+        self.__enemies = []
 
         x, y = 0, 0
 
         for line in fileinput.input(os.path.join("Game", "Assets", "Levels" , "level" + str(level) + ".dat")):
-            for currentBrick in line:
-                if currentBrick == "1":
-                    brick = Brick([x, y], pygame.image.load(GameConstants.SPRITE_BRICK), self.__game)
-                    self.__bricks.append(brick)
-                    self.__amountOfBricksLeft += 1
+            for currentEnemy in line:
+                if currentEnemy == "1":
+                    enemy = Enemy([x, y], pygame.image.load(GameConstants.SPRITE_ENEMY), self.__game)
+                    self.__enemies.append(enemy)
+                    self.__amountOfEnemiesLeft += 1
 
-                elif currentBrick == "2":
-                    brick = SpeedBrick([x, y], pygame.image.load(GameConstants.SPRITE_SPEEDBRICK), self.__game)
-                    self.__bricks.append(brick)
-                    self.__amountOfBricksLeft += 1
+                #elif currentEnemy == "2":
+                #    enemy = SpeedBrick([x, y], pygame.image.load(GameConstants.SPRITE_SPEEDBRICK), self.__game)
+                #    self.__enemies.append(enemy)
+                #    self.__amountOfEnemiesLeft += 1
 
-                elif currentBrick == "3":
-                    brick = LifeBrick([x, y], pygame.image.load(GameConstants.SPRITE_LIFEBRICK), self.__game)
-                    self.__bricks.append(brick)
-                    self.__amountOfBricksLeft += 1
+                #elif currentEnemy == "3":
+                #    enemy = LifeBrick([x, y], pygame.image.load(GameConstants.SPRITE_LIFEBRICK), self.__game)
+                #    self.__enemies.append(enemy)
+                #    self.__amountOfEnemiesLeft += 1
 
-                x += GameConstants.BRICK_SIZE[0]
+                x += GameConstants.ENEMY_SIZE[0]
                 
             x = 0
-            y += GameConstants.BRICK_SIZE[1]
+            y += GameConstants.ENEMY_SIZE[1]
 

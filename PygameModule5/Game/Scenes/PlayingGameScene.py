@@ -22,7 +22,7 @@ class PlayingGameScene(Scene):
         for bullet in bullets:
            
 
-            for brick in game.getLevel().getBricks():
+            for brick in game.getLevel().getEnemies():
                 if not brick.isDestroyed() and bullet.intersects(brick):
                     brick.hit()
                     game.increaseScore(brick.getHitPoints())
@@ -45,7 +45,7 @@ class PlayingGameScene(Scene):
                 game.screen.blit(bullet.getSprite(), bullet.getPosition())
         
         #render bricks
-        for brick in game.getLevel().getBricks():
+        for brick in game.getLevel().getEnemies():
             if not brick.isDestroyed():
                 game.screen.blit(brick.getSprite(), brick.getPosition())
 

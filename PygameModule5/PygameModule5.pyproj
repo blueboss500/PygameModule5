@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Game\Bricks\Enemy.py" />
     <Compile Include="Game\Bullet.py" />
     <Compile Include="Game\Ball.py">
       <SubType>Code</SubType>
@@ -83,6 +84,7 @@
     <Content Include="Game\Assets\bulletOLD.png" />
     <Content Include="Game\Assets\ball.png" />
     <Content Include="Game\Assets\BrickHit.wav" />
+    <Content Include="Game\Assets\enemy1.png" />
     <Content Include="Game\Assets\ExtraLife.wav" />
     <Content Include="Game\Assets\GalagaShip32.png" />
     <Content Include="Game\Assets\GameOver.wav" />
